@@ -1,0 +1,50 @@
+##################################################################################
+# Web: http://xpnsbraindump.blogspot.com
+# Email: email.xpn[at]gmail[dot]com
+# IRC: irc.awarenetwork.org #aware
+#
+# Created in full by XPN
+#
+# Use as you see fit (no mallicious programs tho). Please give me credit where due
+# and let me know how/why it has been used.
+#
+##################################################################################
+#
+# This was created out of a curiosity for the intercepting and modifying live traffic I have
+# read so much about. When searching for a good tool to allow modification of
+# data streams I fell short... so here we go.
+#
+# !!! NOT FOR MALLICIOUS USE !!!
+#
+# This is my first ever python program, so please forgive the usual amateur mistakes
+# any improvements/critisism (constructive only please) then let me know.
+#
+# Usage is pretty simple and an example has been provided at the bottom of the
+# python code.
+#
+##################################################################################
+
+
+####################
+
+#
+# Used in the following topology:
+#
+# [Host] <--> [Router]
+#
+# We run this program and the layer 2 layout changes to:
+#
+# [Host] <--> [Us] <--> [Router]
+#
+# It works as follows:
+# we send 2 continuous arp replies
+# one to the Host
+# one to the router
+#
+# each arp contains our MAC address
+#
+# Data is captured by this program by sniffing raw data
+# We can intervene in the stream of data by dropping packets, changing packets etc..
+#
+# The framework allows a callback for specific protocols to a subroutine
+#
